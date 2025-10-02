@@ -1,0 +1,59 @@
+cv:
+  name: John Smith
+  email: john@email.com
+  phone: +1-234-567-8900
+  website: https://portfolio-website.com
+  social_networks:
+  - network: LinkedIn
+    username: johnsmith
+  - network: GitHub
+    username: johnsmith
+  sections:
+    summary:
+    - Professional summary statement line 1
+    - Professional summary statement line 2
+    experience:
+    - company: Acme Corp
+      position: Software Engineer
+      location: New York, NY
+      start_date: 2023-01
+      end_date: present
+      highlights:
+      - Developed and maintained key features for the company's flagship product.
+      - Improved application performance by 15% through code optimization.
+      - Collaborated with a team of 5 engineers on complex projects.
+    education:
+    - institution: University of California, Berkeley
+      area: Computer Science
+      degree: Bachelor of Science in Computer Science
+      location: Berkeley, CA
+      start_date: 2019-08
+      end_date: 2023-05
+      gpa: 3.8/4.0
+      highlights:
+      - 'Relevant coursework: Data Structures, Algorithms, Database Systems'
+      - Completed a senior project focused on machine learning algorithms.
+    technologies:
+    - label: Programming Languages
+      details: Python, JavaScript, Java
+    - label: Frameworks & Libraries
+      details: React, Node.js, Django
+    - label: Databases
+      details: PostgreSQL, MongoDB
+    - label: Tools & Technologies
+      details: Git, Docker, AWS
+    - label: Soft Skills
+      details: Leadership, Communication, Problem Solving
+    projects:
+    - name: Personal Portfolio Website
+      date: 2023-01
+      highlights:
+      - Developed a responsive personal portfolio website using React and Node.js.
+      - Implemented user authentication and data display.
+      - Designed a clean and user-friendly interface.
+    certificates:
+    - AWS Certified Solutions Architect (2023)
+    - Google Cloud Professional Developer (2022)
+  theme: moderncv
+  style:
+    header_separator: none

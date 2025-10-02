@@ -1,0 +1,6 @@
+langchain_community
+pypdf
+langchain_core
+PyMuPDF
+pydantic
+rendercv

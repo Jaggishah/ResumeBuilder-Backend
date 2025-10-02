@@ -1,0 +1,23 @@
+# Core FastAPI dependencies
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+
+
+pymongo==4.6.0
+
+# Existing dependencies
+langchain==0.3.27
+langchain-community==0.3.29
+langchain-core==0.3.75
+langchain-ollama==0.2.1
+pypdf==6.0.0
+pydantic==2.11.7
+PyYAML==6.0
+rendercv
+
+# Optional: for environment variables
+python-dotenv==1.0.1
+beanie
+bson
+motor

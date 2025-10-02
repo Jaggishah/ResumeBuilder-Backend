@@ -1,0 +1,65 @@
+cv:
+  name: John Doe
+  email: john.doe@example.com
+  phone: +1-234-567-8900
+  website: https://johndoe.com
+  social_networks:
+  - network: LinkedIn
+    username: johndoe
+  - network: GitHub
+    username: johndoe
+  sections:
+    summary:
+    - Experienced software engineer with 5+ years developing scalable web applications
+    - Passionate about clean code, system architecture, and team collaboration
+    experience:
+    - company: Tech Corp
+      position: Senior Software Engineer
+      location: San Francisco, CA
+      start_date: 2021-03
+      end_date: present
+      highlights:
+      - Led development of microservices architecture serving 1M+ users
+      - Reduced system latency by 40% through optimization and caching
+      - Mentored 3 junior developers and established code review processes
+    - company: StartupXYZ
+      position: Full Stack Developer
+      location: Remote
+      start_date: 2019-06
+      end_date: 2021-02
+      highlights:
+      - Built responsive web application using React and Node.js
+      - Implemented CI/CD pipeline reducing deployment time by 60%
+      - Collaborated with design team to improve user experience
+    education:
+    - institution: University of Technology
+      area: Computer Science
+      degree: Bachelor of Science
+      location: Boston, MA
+      start_date: 2015-09
+      end_date: 2019-05
+      gpa: 3.8/4.0
+    technologies:
+    - label: Programming Languages
+      details: Python, JavaScript, TypeScript, Java, Go
+    - label: Frameworks & Libraries
+      details: React, Node.js, Django, Flask, Spring Boot
+    - label: Databases & Tools
+      details: PostgreSQL, MongoDB, Redis, Docker, Kubernetes, AWS
+    projects:
+    - name: E-commerce Platform
+      date: '2023'
+      highlights:
+      - Built scalable e-commerce platform handling 10k+ transactions daily
+      - 'Technologies: React, Node.js, PostgreSQL, Stripe API'
+    - name: Task Management App
+      date: '2022'
+      highlights:
+      - Developed real-time collaborative task management application
+      - 'Technologies: Vue.js, Express.js, Socket.io, MongoDB'
+    certificates:
+    - AWS Certified Solutions Architect (2023)
+    - Google Cloud Professional Developer (2022)
+  theme: moderncv
+  style:
+    header_separator: none

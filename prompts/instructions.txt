@@ -1,0 +1,154 @@
+def create_resume_json_extraction_prompt(resume_text: str) -> str:
+    """
+    Generate a comprehensive LLM prompt for extracting resume data as JSON
+    """
+    
+    json_template = {
+        "name": "Full Name Here",
+        "email": "email@example.com", 
+        "phone": "+1-234-567-8900",
+        "location": "City, State, Country",
+        "website": "https://portfolio-website.com",
+        "linkedin": "https://linkedin.com/in/username",
+        "github": "https://github.com/username",
+        "summary": [
+            "Professional summary statement lines",
+        ],
+        "experience": [
+            {
+                "company": "Company Name",
+                "position": "Job Title/Position", 
+                "location": "City, State",
+                "start_date": "2023-01",
+                "end_date": "present",
+                "highlights": [
+                    "Key achievement with quantifiable impact",
+                    "Major responsibility or project outcome",
+                    "Technical skills demonstrated or results achieved"
+                ]
+            }
+        ],
+        "education": [
+            {
+                "institution": "University/College Name",
+                "degree" : "BS/MS",
+                "area": "Major/Field of Study ,  #full degree name here
+                "location": "City, State",
+                "start_date": "2019-08",
+                "end_date": "2023-05",
+                "gpa": "3.8/4.0",
+                "highlights": [
+                    "Relevant coursework, honors, or achievements"
+                ]
+            }
+        ],
+        "skills": {
+            "Programming Languages": ["Python", "JavaScript", "Java"],
+            "Frameworks & Libraries": ["React", "Node.js", "Django"], 
+            "Databases": ["PostgreSQL", "MongoDB"],
+            "Tools & Technologies": ["Git", "Docker", "AWS"],
+            "Soft Skills": ["Leadership", "Communication", "Problem Solving"]
+        },
+        "projects": [
+            {
+                "name": "Project Name",
+                "date": "2023",
+                "highlights": [
+                    "Project description and key features implemented",
+                    "Technologies used: React, Node.js, PostgreSQL",
+                    "Impact or results achieved"
+                ]
+            }
+        ],
+        "certifications": [
+            "example certification here", "example certification here2"
+        ]
+    }
+    
+    prompt = f"""**TASK: Extract Resume Information and Return as Valid JSON**
+
+You are an expert resume parser. I will provide you with resume text extracted from a PDF, and you need to extract ALL information and structure it into a specific JSON format.
+
+**CRITICAL INSTRUCTIONS:**
+1. Return ONLY valid JSON - no explanatory text, no markdown formatting, no code blocks
+2. Use the exact JSON structure provided below
+3. Extract ALL information from the resume text
+4. If information is missing, use appropriate placeholder values or remove the field
+5. Ensure all dates are in YYYY-MM format (e.g., "2023-01")
+6. Use "present" for current positions (lowercase)
+7. Make bullet points specific and quantifiable when possible
+8. Return all data that is available in resume parse content.
+
+
+
+**DETAILED EXTRACTION RULES:**
+
+**Personal Information:**
+- Extract full name (usually at the top)
+- Find email address (look for @ symbol)
+- Extract phone number (various formats)
+- Identify location/address
+- Find LinkedIn profile URL or username
+- Find GitHub profile URL or username  
+- Look for personal website or portfolio
+
+**Summary/Objective:**
+- Extract professional summary or objective statement
+- Break into separate sentences if it's a paragraph
+- Look for sections labeled: Summary, Objective, Profile, About
+- if summary is not available you can create a summary about few lines going thorugh experience, skills or certifications.
+
+**Experience:**
+- Extract ALL work experience entries
+- For each job: company, position/title, location, dates, responsibilities
+- Convert dates to YYYY-MM format
+- Look for sections: Experience, Work, Employment, Career, Professional
+- Extract bullet points under each role
+- Include internships and relevant part-time work
+
+**Education:**
+- Extract ALL education entries  
+- Include: institution, degree, major/area, location, dates, GPA if mentioned
+- Look for: Education, Academic, Qualifications, Degrees
+- Include relevant coursework if mentioned
+
+**Skills:**
+- Group skills into logical categories
+- Common categories: Programming Languages, Frameworks, Tools, Databases, Soft Skills
+- Look for: Skills, Technical Skills, Competencies, Technologies
+- Don't create empty categories
+- mostly use skills that are available in extract content.
+
+**Projects:**
+- Extract personal, academic, or professional projects
+- Include project name, date, description, technologies used
+- Look for: Projects, Portfolio, Personal Work
+
+**Certifications:**
+- Include certification name and year if available
+- Format: "Certification Name (Year)"
+- Look for: Certifications, Certificates, Credentials, Training
+
+**DATE FORMATTING RULES:**
+- Input: "January 2023" → Output: "2023-01"  
+- Input: "Jan 2023" → Output: "2023-01"
+- Input: "2023-01-15" → Output: "2023-01"
+- Input: "Present", "Current", "Now" → Output: "present"
+- Input: "2023" → Output: "2023-01"
+
+**QUALITY CHECKLIST:**
+✓ All personal information extracted accurately
+✓ All work experience entries included with proper date formatting
+✓ All education entries captured
+✓ Skills properly categorized  
+✓ JSON is valid and parseable
+✓ No explanatory text outside the JSON
+✓ Empty sections removed or contain placeholder data
+
+
+**OUTPUT INSTRUCTIONS:**
+Return the complete JSON object with all extracted information. The JSON must be valid and ready for immediate parsing. Do not include any text before or after the JSON object. don't include other instructions too.
+
+**EXAMPLE OUTPUT FORMAT:**
+{{"name": "John Smith", "email": "john@email.com", "experience": [...], ...}}
+"""
