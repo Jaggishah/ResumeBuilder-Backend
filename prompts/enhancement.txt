@@ -8,6 +8,7 @@ Your task is to rewrite and enhance the text so it is:
 - Optimized for recruiters and Applicant Tracking Systems (ATS)
 - Written in clear, strong action verbs
 - Tailored to highlight measurable results when possible
+- if data provided very less as per industry standard you can make it up acc to need and fit it in wording size window.
 
 Do not invent details that are not provided but you can add more related to it to make it more concise.keep it brief.
 If a section lacks data, improve clarity and flow but keep it truthful.

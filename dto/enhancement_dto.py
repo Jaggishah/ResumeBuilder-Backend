@@ -6,6 +6,7 @@ from datetime import datetime
 class EnhanceRequest(BaseModel):
     content: str
     section_name : str
+    instructions: Optional[str] = None
 
 
 

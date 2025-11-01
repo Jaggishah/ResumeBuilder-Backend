@@ -1,8 +1,7 @@
-import fitz  # PyMuPDF
+import PyPDF2  # PyMuPDF
 import re
 from pathlib import Path
 from typing import Dict, List, Any
-import yaml
 from .agent import ResumeAgent
 import asyncio
 
@@ -14,15 +13,15 @@ class PDFResumeParser:
     def extract_raw_text(self, pdf_path: str) -> str:
         """Extract raw text from PDF"""
         try:
-            doc = fitz.open(pdf_path)
-            full_text = ""
-            
-            for page_num in range(len(doc)):
-                page = doc.load_page(page_num)
-                text = page.get_text()
-                full_text += text + "\n"
-            
-            doc.close()
+            with open(pdf_path, 'rb') as file:
+                pdf_reader = PyPDF2.PdfReader(file)
+                full_text = ""
+                
+                for page_num in range(len(pdf_reader.pages)):
+                    page = pdf_reader.pages[page_num]
+                    text = page.extract_text()
+                    full_text += text + "\n"
+                
             return full_text.strip()
             
         except Exception as e:

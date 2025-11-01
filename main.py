@@ -7,8 +7,9 @@ import subprocess
 import sys
 from contextlib import asynccontextmanager
 
+
 # Import routes
-from routes import resume_routes, ai_routes
+from routes import resume_routes, ai_routes, auth_routes, feedback_routes
 from database.models import init_database
 
 @asynccontextmanager
@@ -35,6 +36,8 @@ app.add_middleware(
 # Include routers
 app.include_router(resume_routes.router)
 app.include_router(ai_routes.router)
+app.include_router(auth_routes.router)
+app.include_router(feedback_routes.router)
 
 @app.get("/")
 async def root():

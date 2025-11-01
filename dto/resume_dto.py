@@ -4,16 +4,15 @@ from datetime import datetime
 from bson import ObjectId
 
 class ResumeDTO(BaseModel):
-    id: Optional[str] = None
+    user_id: Optional[str] = None
     username: Optional[str] = None
     json_data: Dict[str, Any] = Field(default_factory=dict)
-    yaml_content: Optional[str] = None
-    pdf_path: Optional[str] = None
+    title: Optional[str] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     email: Optional[EmailStr] = None
 
-    @field_validator('id', mode='before')
+    @field_validator('user_id', mode='before')
     @classmethod
     def convert_objectid_to_string(cls, v):
         """Convert ObjectId to string"""
