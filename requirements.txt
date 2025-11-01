@@ -3,7 +3,7 @@ fastapi[standard]
 pydantic[email]
 PyJWT
 requests
-bson
+
 # Google OAuth
 google-auth
 google-auth-oauthlib
@@ -16,8 +16,7 @@ langchain
 langchain-community
 langchain-core
 langchain-ollama
-
-# Optional: for environment variables
+langchain-groq
 python-dotenv
 beanie
 motor
