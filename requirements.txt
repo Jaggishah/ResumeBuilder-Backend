@@ -1,10 +1,9 @@
 # Core FastAPI dependencies
 fastapi[standard]
 pydantic[email]
-httpx
 PyJWT
 requests
-
+bson
 # Google OAuth
 google-auth
 google-auth-oauthlib
@@ -18,10 +17,8 @@ langchain-community
 langchain-core
 langchain-ollama
 
-
 # Optional: for environment variables
-python-dotenv==1.0.1
+python-dotenv
 beanie
-bson
 motor
 pyPDF2
